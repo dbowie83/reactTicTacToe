@@ -10,12 +10,24 @@ function Square({value, onSquareClick}) {
 	
 
 export default function Board() {
+	const [xIsNext, setXIsNext] = useState(true);
 	const [squares, setSquares] = useState(Array(9).fill(null)); //initialize an array of length 9. each value is null.
 
 	function handleClick(index) {
+		if (squares[index]) {//check if the value of the square is not null
+			return; //if the square has already been chosen, don't let the user pick it!
+		}
+
 		const nextSquares = squares.slice(); //make a copy of the squares array
-		nextSquares[index] = "X"; //set the value of our copy of squares[index] to "X" bc it was clicked
+		//check whose turn it is
+		//set the value of our copy of squares[index] bc it was clicked
+		if (xIsNext) {
+			nextSquares[index] = "X";
+		} else {
+			nextSquares[index] = "O";
+		}
 		setSquares(nextSquares); //replace the squares array with our modified copy. This will re-render any component reliant on the squares State.
+		setXIsNext(!xIsNext);
 	}
 
 	return (
