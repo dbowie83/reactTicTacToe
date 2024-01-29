@@ -1,4 +1,4 @@
-I followed the React Tic Tac Toe tutorial as it appears here:\ 
+I followed the React Tic Tac Toe tutorial as it appears here: <br>
 https://react.dev/learn/tutorial-tic-tac-toe#
 
 To run the app: 
